@@ -1,28 +1,51 @@
 import pygame
 import random
-
+import os
 
 pygame.init()
 
 SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 800
-
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
+FRAMES = 40
+SCROLL_THRESH = 250
+GRAVITY = 1
+MAX_CLOUDS = 10
+scroll = 0
+bg_scroll = 0
+game_over = False
+font_small = pygame.font.SysFont('', 30)
+font_big = pygame.font.SysFont('', 60)
+score = 0
+
+if os.path.exists('score.txt'):
+    with open('score.txt', 'r') as file:
+        high_score = int(file.read())
+else:
+    high_score = 0
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 clock = pygame.time.Clock()
-FRAMES = 40
-
-SCROLL_THRESH = 200
-GRAVITY = 1
-MAX_CLOUDS = 10
-scroll = 0
 
 bg_image = pygame.image.load('assets/images/sky.png').convert_alpha()
 dodo_image = pygame.image.load('assets/images/dodo.png').convert_alpha()
 cloud_image = pygame.image.load('assets/images/cloud.png').convert_alpha()
+
+
+def draw_text(text, font, text_col, x, y):
+    img = font.render(text, True, text_col)
+    screen.blit(img, (x, y))
+
+
+def score_board():
+    draw_text('SCORE: ' + str(score), font_small, BLACK, 0, 0)
+    draw_text('HIGH SCORE: ' + str(high_score), font_small, BLACK, 1000, 0)
+
+
+def draw_bg(bg_scroll):
+    screen.blit(bg_image, (0, 0 + bg_scroll))
 
 
 class Player():
@@ -65,9 +88,11 @@ class Player():
                         delta_y = 0
                         self.vel_y = -20
 
-        if self.rect.bottom + delta_y > SCREEN_HEIGHT:
+        """This has been removed to let the player fall off the
+        bottom of the screen"""
+        """if self.rect.bottom + delta_y > SCREEN_HEIGHT:
             delta_y = 0
-            self.vel_y = -20
+            self.vel_y = -20"""
 
         if self.rect.top <= SCROLL_THRESH:
             if self.vel_y < 0:
@@ -94,35 +119,72 @@ class Clouds(pygame.sprite.Sprite):
     def update(self, scroll):
         self.rect.y += scroll
 
+        if self.rect.top > SCREEN_HEIGHT:
+            self.kill()
+
 
 player = Player(SCREEN_WIDTH // 2, SCREEN_HEIGHT - 150)
 
 cloud_group = pygame.sprite.Group()
 
-for c in range(MAX_CLOUDS):
-    c_width = random.randint(40, 60)
-    c_x = random.randint(0, SCREEN_WIDTH - c_width)
-    c_y = c * random.randint(80, 120)
-    cloud = Clouds(c_x, c_y, c_width)
-    cloud_group.add(cloud)
+
+cloud = Clouds(SCREEN_WIDTH // 2, SCREEN_HEIGHT - 75, 50)
+cloud_group.add(cloud)
+
 
 run = True
 while run:
 
-    player.move()
+    scroll = player.move()
 
     clock.tick(FRAMES)
+    if game_over is False:
+        bg_scroll += scroll
+        if bg_scroll >= 600:
+            bg_scroll = 0
+        draw_bg(scroll)
 
-    screen.blit(bg_image, (0, 0))
+        if len(cloud_group) < MAX_CLOUDS:
+            c_width = random.randint(20, 20)
+            c_x = random.randint(0, SCREEN_WIDTH - c_width)
+            c_y = cloud.rect.y - random.randint(60, 80)
+            cloud = Clouds(c_x, c_y, c_width)
+            cloud_group.add(cloud)
 
-    pygame.draw.line(screen, WHITE, (0, SCROLL_THRESH),
-                     (SCREEN_WIDTH, SCROLL_THRESH))
+        cloud_group.update(scroll)
 
-    cloud_group.update(scroll)
+        if scroll > 0:
+            score += scroll
 
-    cloud_group.draw(screen)
+        draw_text('HIGH SCORE', font_small, BLACK, SCREEN_WIDTH - 130,
+                  score - high_score + SCROLL_THRESH)
 
-    player.draw()
+        cloud_group.draw(screen)
+        player.draw()
+        score_board()
+
+        """Game over check"""
+        if player.rect.top > SCREEN_HEIGHT:
+            game_over = True
+    else:
+        draw_text('GAME OVER', font_big, BLACK, 500, 200)
+        draw_text('SCORE: ' + str(score), font_big, BLACK, 500, 250)
+        draw_text('PRESS SPACE TO RESTART', font_big,  BLACK, 400, 300)
+
+        if score > high_score:
+            high_score = score
+            with open('score.txt', 'w') as file:
+                file.write(str(high_score))
+
+        key = pygame.key.get_pressed()
+        if key[pygame.K_SPACE]:
+            game_over = False
+            score = 0
+            scroll = 0
+            player.rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT - 150)
+            cloud_group.empty()
+            cloud = Clouds(SCREEN_WIDTH // 2, SCREEN_HEIGHT - 75, 50)
+            cloud_group.add(cloud)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
