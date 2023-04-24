@@ -1,6 +1,6 @@
 # FLIGHT OF THE DODO
 
-## ABOUT
+## PURPOSE
 
 Take full advantage of the oppritunity for immersive interactive story telling to tell the story of a TiZan, a dodo bird, an his longings to take to the skies again like his ancestors long ago. Fully utilize the oppritunities the medium provides -- unifying mechanics, sound, and visual style to work together to create the game's setting (on the island of Mauritius, where the dodo once lived) and story about a flightless bird that wants to fly again.
 
