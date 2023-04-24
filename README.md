@@ -10,6 +10,7 @@ Take full advantage of the oppritunity for immersive interactive story telling t
 - [X] Have a very basic prototype matching the basic outline for our original idea, allowing for rapid testing -- especially swapping around art assets.
 - [X] Once we have a very basic prototype to play around with: brain storm design choices and more fine grained concepts.
 - [ ] Implement the more complicated mechanics that do a better job telling the story that we're tying to tell.
+- [ ] Implement start menu with beach picture.
 
 **Stretch goals**
 - [ ] Implement at least one enemy, a cyclone, but possibly others -- other birds, Portuguese sailors, an-anthropomorphic-pig-that's-totally-not-supposed-to-be-a-rip-off-of-a-particular-Looney-Toon, or something else thematically appropriate.
@@ -23,21 +24,22 @@ Take full advantage of the oppritunity for immersive interactive story telling t
 - https://www.pygame.org/wiki/GettingStarted
 
 2. Fork this repository to your local system
-3. Navigate to the forked repository and type in this command in your command line`python3 .\main.py`
+3. Navigate to the forked repository and type in this command in your command line`python3 ./TiZan.py`
 
 **Windows (under WSL)**
 1. Follow these instructions to run pygame through WSL2
 - https://medium.com/@youngtuo/run-pygame-through-wsl2-in-3-steps-2ee0b776dbaa
 2. Fork this repository to your local system
-3. Navigate to the forked repository and type in this command in your command line `python3 ./main.py`
+3. Navigate to the forked repository and type in this command in your command line `python3 ./TiZan.py`
 
 **macOS/Linux/BSD**
 1. Install pygame module typing 'pip3 install pygame' at the terminal.
 2. Fork this repository to your local system
-3. Navigate to the forked repository and type in this command in your command line`python3 ./main.py`
+3. Navigate to the forked repository and type in this command in your command line`python3 ./TiZan.py`
 
 # GAME PLAY INSTRUCTIONS
 
+Use the right and left arrows to navigate through the clouds and avoid falling into the sea.
 
 ## AUTHORS
 Jonathan Boller | [Github](https://github.com/jorbian)  
