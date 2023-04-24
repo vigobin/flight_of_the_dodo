@@ -50,5 +50,5 @@ Vishal Gobin | [Github](https://github.com/vigobin)
 
 ## USING CODE AND OTHER MATERIAL BY
 Ben Sbanotto | [Github](https://github.com/bsbanotto)  
-Zach Wilsterman | [Github](https://github.com/wilstermanz)
-Unknown (russs123) | [Github](https://github.com/russs123)
+Zach Wilsterman | [Github](https://github.com/wilstermanz)  
+Unknown (russs123) | [Github](https://github.com/russs123)  
