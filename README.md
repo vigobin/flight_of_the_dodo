@@ -19,7 +19,7 @@
 
 # INSTALLATION INSTRUCTIONS
 
-**Windows Operating System**
+**Windows (native)**
 1. Install python3 and pygame module
 - https://www.python.org/downloads/
 - https://www.pygame.org/wiki/GettingStarted
@@ -27,19 +27,18 @@
 2. Fork this repository to your local system
 3. Navigate to the forked repository and type in this command in your command line`python3 .\main.py`
 
-**macOS Operating System**
-1. Install python3 and pygame module
-- https://www.python.org/downloads/
-- https://www.pygame.org/wiki/GettingStarted
-
-2. Fork this repository to your local system
-3. Navigate to the forked repository and type in this command in your command line`python3 ./main.py`
-
-**WSL Operating System**
+**Windows (under WSL)**
 1. Follow these instructions to run pygame through WSL2
 - https://medium.com/@youngtuo/run-pygame-through-wsl2-in-3-steps-2ee0b776dbaa
 2. Fork this repository to your local system
 3. Navigate to the forked repository and type in this command in your command line `python3 ./main.py`
+
+**macOS**
+1. Install pygame module
+- https://www.pygame.org/wiki/GettingStarted
+
+2. Fork this repository to your local system
+3. Navigate to the forked repository and type in this command in your command line`python3 ./main.py`
 
 # GAME PLAY INSTRUCTIONS
 
