@@ -12,7 +12,7 @@ Take full advantage of the oppritunity for immersive interactive story telling t
 - [ ] Implement the more complicated mechanics that do a better job telling the story that we're tying to tell.
 
 **Stretch goals**
-- [ ] Implement at least one enemy, a cyclone, but possibly others -- other birds, Portuguese sailors, an anthropomorphic pig that's totally not supposed to be a rip off of a particular Looney Toon, or something else thematically appropriate.
+- [ ] Implement at least one enemy, a cyclone, but possibly others -- other birds, Portuguese sailors, an-anthropomorphic-pig-that's-totally-not-supposed-to-be-a-rip-off-of-a-particular-Looney-Toon, or something else thematically appropriate.
 - [ ] Better structure the code base with more modular design and work to harden against errors to allow for easier modding for non-programmers or people unfamilar with Python.
 
 # INSTALLATION INSTRUCTIONS
@@ -32,9 +32,7 @@ Take full advantage of the oppritunity for immersive interactive story telling t
 3. Navigate to the forked repository and type in this command in your command line `python3 ./main.py`
 
 **macOS/Linux/BSD**
-1. Install pygame module
-- https://www.pygame.org/wiki/GettingStarted
-
+1. Install pygame module typing 'pip3 install pygame' at the terminal.
 2. Fork this repository to your local system
 3. Navigate to the forked repository and type in this command in your command line`python3 ./main.py`
 
