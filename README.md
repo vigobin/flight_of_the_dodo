@@ -43,9 +43,6 @@
 
 # GAME PLAY INSTRUCTIONS
 
-Placeholder
-
-<br>
 
 ## AUTHORS
 Jonathan Boller | [Github](https://github.com/jorbian)
