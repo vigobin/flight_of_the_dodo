@@ -33,7 +33,7 @@
 2. Fork this repository to your local system
 3. Navigate to the forked repository and type in this command in your command line `python3 ./main.py`
 
-**macOS**
+**macOS/Linux/BSD**
 1. Install pygame module
 - https://www.pygame.org/wiki/GettingStarted
 
