@@ -37,11 +37,11 @@ clock = pygame.time.Clock()
 
 # Play music and sound fx
 pygame.mixer.music.load('assets/music/sega1.mp3')
-pygame.mixer.music.set_volume(0.5)
 pygame.mixer.music.play(-1, 0.0)
+pygame.mixer.music.set_volume(0.5)
 cloud_fx = pygame.mixer.Sound('assets/music/hit_cloud3.mp3')
 fall_fx = pygame.mixer.Sound('assets/music/die1.mp3')
-# not used: gameOver = pygame.mixer.Sound('assets/music/game_over1.mp3')
+gameover = pygame.mixer.Sound('assets/music/game_over.mp3')
 
 
 # images to be loaded
@@ -204,7 +204,9 @@ while run:
         # Game over check
         if player.rect.top > SCREEN_HEIGHT:
             game_over = True
+            pygame.mixer.music.stop()
             fall_fx.play()
+            gameover.play()
 
     else:
         draw_text('GAME OVER', font_big, BLACK, 375, 200)
@@ -229,6 +231,8 @@ while run:
             # create starting cloud
             cloud = Clouds(SCREEN_WIDTH // 2, SCREEN_HEIGHT - 75, 50)
             cloud_group.add(cloud)
+            pygame.mixer.music.play(-1, 0.0)
+            pygame.mixer.music.set_volume(0.5)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
