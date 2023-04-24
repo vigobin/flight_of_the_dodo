@@ -45,8 +45,8 @@
 
 
 ## AUTHORS
-Jonathan Boller | [Github](https://github.com/jorbian)
-Vishal Gobin | [Github](https://github.com/vigobin)
+Jonathan Boller | [Github](https://github.com/jorbian)  
+Vishal Gobin | [Github](https://github.com/vigobin)  
 
 ## USING CODE AND OTHER MATERIAL BY
 Ben Sbanotto | [Github](https://github.com/bsbanotto)  
