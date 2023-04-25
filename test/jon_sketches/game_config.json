@@ -1,0 +1,56 @@
+{
+    "game_title": "FLIGHT OF THE DODO",
+    "display_settings": {
+        "screen_dimensions": {
+            "width": 400,
+            "height": 600
+        },
+        "frames_per_sec": 60,
+        "font": {
+            "name": "Lucida Sans",
+            "base_size": 20,
+            "diff": 4
+        },
+        "colours": {
+            "white": [255, 255, 255],
+            "black": [0, 0, 0],
+            "panel": []
+        },
+        "images": {
+            "location": "assets/images",
+            "sprites": {
+                "player_character": "dodo.png",
+                "background": "sky.png",
+                "cloud": "cloud.png"
+            }
+        }
+    },
+    "sounds": {
+        "location": "assets/sounds",
+        "music": {
+            "filename": "music.mp3",
+            "volume": 0.6,
+            "play": [-1, 0.0]
+        },
+        "sound_effects": {
+            "jump": {
+                "filename": "jump.mp3",
+                "volume": 0.5
+            },
+            "death": {
+                "filename": "death.mp3",
+                "volume": 0.5
+            },
+            "game_over": {
+                "filename": "game_over.mp3",
+                "volume": 0.5
+            }
+        }
+    },
+    "game_constants": {
+        "scroll_thresh": 200,
+        "gravity": 1,
+        "max_platforms": 10
+    },
+    "high_score": "score.txt"
+}
